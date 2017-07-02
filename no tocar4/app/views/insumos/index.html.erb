@@ -1,0 +1,75 @@
+<div class="card">
+  <div class="card-block">
+   <h4 class="card-title">Insumos</h4>
+   <%= form_tag insumos_path, class: "form-inline", role: "form",  method: 'get' do %>
+   	<label>Nombre: </label>
+   	<div class="form-group">
+      	<%= search_field_tag :search, params[:search], :class => "form-control",
+          	placeholder: "Ingrese Nombre", size: "50" %>
+   	</div>
+   	<button class="btn btn-success">Buscar
+   	</button>
+   <% end %>
+  </div>
+</div>
+
+<h1>Insumos</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Num fact</th>
+      <th>Proveedor</th>
+      <th>Documento</th>
+      <th>Numero</th>
+      <th>Empleado</th>
+      <th>Cant</th>
+      <th>Detalle</th>
+      <th>Val uni</th>
+      <th>Total</th>
+      <th>Subtotal</th>
+      <th>Iva</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @insumos.each do |insumo| %>
+      <tr>
+        <td><%= insumo.fecha %></td>
+        <td><%= insumo.num_fact %></td>
+        <td><%= insumo.proveedor %></td>
+        <td><%= insumo.documento %></td>
+        <td><%= insumo.numero %></td>
+        <td><%= insumo.empleado %></td>
+        <td><%= insumo.cant %></td>
+        <td><%= insumo.detalle %></td>
+        <td><%= insumo.val_uni %></td>
+        <td><%= insumo.total %></td>
+        <td><%= insumo.subtotal %></td>
+        <td><%= insumo.iva %></td>
+        <td><%= insumo.total %></td>
+        <td><%= link_to 'Ver', insumo, remote: true, class:"btn btn-info" %></td>
+        <% if can? :update, @insumo %>
+        <td><%= link_to 'Editar', edit_insumo_path(insumo), class:"btn btn-warning" %></td>
+        <% end %>
+        <% if can? :delete, @insumo %>
+        <td><%= link_to 'Borrar', insumo, method: :delete, data: { confirm: 'ESTA SEGURO?' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= will_paginate @insumos, renderer: BootstrapPagination::Rails %>
+
+<br>
+Insumos: <%= @insumos.count %>
+<br>
+<% if can? :create, @insumo %>
+<%= link_to 'Registrar Insumo', new_insumo_path, class:"btn btn-success" %>
+<% end %>

@@ -1,0 +1,36 @@
+<%= simple_form_for @pedido do |f| %>
+
+    <strong>Fecha</strong>
+    <div class="input-group" id="datetimepicker">
+        	<%= f.text_field :fecha, as: "string", class: 'form-control',
+        	readonly: "readonly",
+        	data: { date_format: 'YYYY/MM/DD' } %>
+    	<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span></span>
+  	</div>
+    <%= f.input :num_pedi %>
+    <%= f.input :cliente %>
+     <strong>Fecha entrega</strong>
+    <div class="input-group" id="datetimepicker1">
+     	<%= f.text_field :fecha_entrega, as: "string", class: 'form-control',
+        	readonly: "readonly",
+        	data: { date_format: 'YYYY/MM/DD' } %>
+    	<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span></span>
+  	</div>
+    <%= f.input :empleado %>
+    <%= f.input :cant %>
+    <%= f.input :prenda %>
+    <%= f.input :pieza %>
+    <%= f.input :talla %>
+    <%= f.input :val_uni %>
+    <%= f.input :total %>
+    <%= f.input :subtotal %>
+    <%= f.input :iva %>
+    <%= f.input :total %>
+    
+
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>
+
+

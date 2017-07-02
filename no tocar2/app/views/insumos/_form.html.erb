@@ -1,0 +1,45 @@
+<%= simple_form_for @insumo do |f| %>
+
+  <% if insumo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
+
+      <ul>
+      <% insumo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.input :fecha %>
+  
+    <%= f.input :num_fact %>
+  
+    <%= f.input :proveedor %>
+  
+    <%= f.input :documento %>
+  
+    <%= f.input :numero %>
+  
+    <%= f.input :empleado %>
+  
+    <%= f.input :cant %>
+  
+    <%= f.input :detalle %>
+  
+    <%= f.input :val_uni %>
+  
+    <%= f.input :total %>
+  
+    <%= f.input :subtotal %>
+  
+    <%= f.input :iva %>
+  
+    <%= f.input :total %>
+  
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>

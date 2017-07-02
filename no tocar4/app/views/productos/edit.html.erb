@@ -1,0 +1,6 @@
+<h1>Editar Producto</h1>
+
+<%= render 'form', producto: @producto %>
+
+<%= link_to 'VER', @producto, class:"btn btn-info glyphicon glyphicon-eye-open", remote: true %> |
+<%= link_to 'Regresar', productos_path, class:"btn btn-default glyphicon glyphicon-triangle-left" %>

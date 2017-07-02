@@ -1,0 +1,48 @@
+<%= simple_form_for @programacion do |f| %>
+
+  <% if programacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(programacion.errors.count, "error") %> prohibited this programacion from being saved:</h2>
+
+      <ul>
+      <% programacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.input :fecha %>
+   
+    <%= f.input :num_progr %>
+   
+    <%= f.input :cliente %>
+   
+    <%= f.input :fecha_entrega %>
+   
+    <%= f.input :empleado %>
+   
+    <%= f.input :cant %>
+   
+    <%= f.input :prenda %>
+   
+    <%= f.input :pieza %>
+   
+    <%= f.input :talla %>
+   
+    <%= f.input :val_uni %>
+   
+    <%= f.input :total %>
+   
+    <%= f.input :subtotal %>
+   
+    <%= f.input :iva %>
+   
+    <%= f.input :total %>
+   
+
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>

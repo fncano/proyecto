@@ -1,0 +1,87 @@
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+  	<div class="modal-header">
+    	<h5 class="modal-title" id="exampleModalLongTitle">datos del cliente</h5>
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      	<span aria-hidden="true">&times;</span>
+    	</button>
+  	</div>
+  	<div class="modal-body">
+
+        <p>
+          <strong>Fecha:</strong>
+          <%= @venta.fecha %>
+        </p>
+        
+        <p>
+          <strong>Num fact:</strong>
+          <%= @venta.num_fact %>
+        </p>
+        
+        <p>
+          <strong>Cliente:</strong>
+          <%= @venta.cliente %>
+        </p>
+        
+        <p>
+          <strong>Fecha entrega:</strong>
+          <%= @venta.fecha_entrega %>
+        </p>
+        
+        <p>
+          <strong>Empleado:</strong>
+          <%= @venta.empleado %>
+        </p>
+        
+        <p>
+          <strong>Cant:</strong>
+          <%= @venta.cant %>
+        </p>
+        
+        <p>
+          <strong>Prenda:</strong>
+          <%= @venta.prenda %>
+        </p>
+        
+        <p>
+          <strong>Pieza:</strong>
+          <%= @venta.pieza %>
+        </p>
+        
+        <p>
+          <strong>Talla:</strong>
+          <%= @venta.talla %>
+        </p>
+        
+        <p>
+          <strong>Val uni:</strong>
+          <%= @venta.val_uni %>
+        </p>
+        
+        <p>
+          <strong>Total:</strong>
+          <%= @venta.total %>
+        </p>
+        
+        <p>
+          <strong>Subtotal:</strong>
+          <%= @venta.subtotal %>
+        </p>
+        
+        <p>
+          <strong>Iva:</strong>
+          <%= @venta.iva %>
+        </p>
+        
+        <p>
+          <strong>Total:</strong>
+          <%= @venta.total %>
+        </p>
+</div>
+  	<div class="modal-footer">
+    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  	</div>
+	</div>
+  </div>
+</div>

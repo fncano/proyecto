@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-block">
+   <h4 class="card-title">Perdidas</h4>
+   <%= form_tag perdidas_path, class: "form-inline", role: "form",  method: 'get' do %>
+   	<label>Nombre: </label>
+   	<div class="form-group">
+      	<%= search_field_tag :search, params[:search], :class => "form-control",
+          	placeholder: "Ingrese Nombre", size: "50" %>
+   	</div>
+   	<button class="btn btn-success">Buscar
+   	</button>
+   <% end %>
+  </div>
+</div>
+
+<h1>Perdidas</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Num doc</th>
+      <th>Cliente</th>
+      <th>Fecha entrega</th>
+      <th>Empleado</th>
+      <th>Cant</th>
+      <th>Prenda</th>
+      <th>Pieza</th>
+      <th>Talla</th>
+      <th>Val uni</th>
+      <th>Total</th>
+      <th>Subtotal</th>
+      <th>Iva</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @perdidas.each do |perdida| %>
+      <tr>
+        <td><%= perdida.fecha %></td>
+        <td><%= perdida.num_doc %></td>
+        <td><%= perdida.cliente %></td>
+        <td><%= perdida.fecha_entrega %></td>
+        <td><%= perdida.empleado %></td>
+        <td><%= perdida.cant %></td>
+        <td><%= perdida.prenda %></td>
+        <td><%= perdida.pieza %></td>
+        <td><%= perdida.talla %></td>
+        <td><%= perdida.val_uni %></td>
+        <td><%= perdida.total %></td>
+        <td><%= perdida.subtotal %></td>
+        <td><%= perdida.iva %></td>
+        <td><%= perdida.total %></td>
+        <td><%= link_to 'Ver', perdida, remote: true, class:"btn btn-info" %></td>
+        <% if can? :update, @perdida %>
+        <td><%= link_to 'Editar', edit_perdida_path(perdida), class:"btn btn-warning" %></td>
+        <% end %>
+        <% if can? :delete, @perdida %>
+        <td><%= link_to 'Borrar', perdida, method: :delete, data: { confirm: 'ESTA SEGURO?' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= will_paginate @perdidas, renderer: BootstrapPagination::Rails %>
+
+<br>
+Perdidas: <%= @perdidas.count %>
+<br>
+<% if can? :create, @perdida %>
+<%= link_to 'Registrar Perdida', new_perdida_path, class:"btn btn-success" %>
+<% end %>

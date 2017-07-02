@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-block">
+   <h4 class="card-title">Empleados</h4>
+   <%= form_tag empleados_path, class: "form-inline", role: "form",  method: 'get' do %>
+   	<label>Nombre: </label>
+   	<div class="form-group">
+      	<%= search_field_tag :search, params[:search], :class => "form-control",
+          	placeholder: "Ingrese Nombre", size: "50" %>
+   	</div>
+   	<button class="btn btn-success">Buscar
+   	</button>
+   <% end %>
+  </div>
+</div>
+
+<h1>Empleados</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Documento</th>
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Direcion</th>
+      <th>Lugar</th>
+      <th>Telefono</th>
+      <th>Movil</th>
+      <th>Correo</th>
+      <th>Usuario</th>
+      <th>Contrasena</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empleados.each do |empleado| %>
+      <tr>
+        <td><%= empleado.documento %></td>
+        <td><%= empleado.numero %></td>
+        <td><%= empleado.nombre %></td>
+        <td><%= empleado.direcion %></td>
+        <td><%= empleado.lugar %></td>
+        <td><%= empleado.telefono %></td>
+        <td><%= empleado.movil %></td>
+        <td><%= empleado.correo %></td>
+        <td><%= empleado.usuario %></td>
+        <td><%= empleado.contrasena %></td>
+        <td><%= link_to 'Ver', empleado, remote: true, class: "btn btn-info" %></td>
+        
+        <td><%= link_to 'Editar', edit_empleado_path(empleado), class:"btn btn-warning" %></td>
+        
+        <% if can? :delete, @empleado %>
+        <td><%= link_to 'Borrar', empleado, method: :delete, data: { confirm: 'ESTA SEGURO' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= will_paginate @empleados, renderer: BootstrapPagination::Rails %>
+
+<br>
+Empleados: <%= @empleados.count %>
+<br>
+
+<%= link_to 'Registro de Empleados', new_empleado_path, class:"btn btn-success" %>

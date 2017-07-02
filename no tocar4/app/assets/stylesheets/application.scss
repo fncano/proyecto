@@ -1,0 +1,81 @@
+/*
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+
+/* universal */
+
+main {
+  @extend .container;
+  padding-bottom: 30px;
+  width: 90%;
+  margin-top: 100px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 10px;
+  }
+
+/* footer */
+
+footer {
+ margin-top: 45px;
+ padding-top: 5px;
+ border-top: 1px solid #eaeaea;
+ color: #999;
+}
+
+footer a {
+ color: #555;
+}  
+
+footer a:hover {
+ color: #222;
+}
+
+footer small {
+ float: left;
+}
+
+footer ul {
+ float: right;
+ list-style: none;
+}
+
+footer ul li {
+ float: left;
+ margin-left: 10px;
+}
+
+/*---------boton login-----------*/
+
+.boton-login{
+ 
+  
+  position:relative;
+  
+  padding:10px;
+}
+
+/*------ barra de navegacion---*/
+
+.barra{
+    float: left;
+    padding-left: 175px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+}
+ 
+
+
+
+
+
+

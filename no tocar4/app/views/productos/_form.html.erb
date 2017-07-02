@@ -1,0 +1,43 @@
+<div class="container">
+ 
+  <%= simple_form_for(producto) do |f| %>
+ 
+	<div class="row">
+  	<% if producto.errors.any? %>
+    	<div id="error_explanation">
+      	<h2><%= pluralize(producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+    
+      	<ul>
+      	<% producto.errors.full_messages.each do |message| %>
+        	<li><%= message %></li>
+      	<% end %>
+      	</ul>
+    	</div>
+  	<% end %>
+ 
+  	<div class="col-md-4">
+    	<%= f.input :nombre %>
+  	</div>
+  	<div class="col-md-4">
+    	<%= f.input :precio %>
+  	</div>
+    
+  	<div class="col-md-4">
+    	<%= f.input :cantidad %>
+  	</div>
+    
+  	<div class="col-md-4">
+    	<%= f.input :iva %>
+  	</div>
+    
+  	<div class="col-md-4">
+    	<%= f.input :marca_nombre, :url => autocomplete_marca_nombre_productos_path, :as => :autocomplete %>
+  	</div>
+    
+	</div>
+	<div class="actions">
+  	<%= f.submit %>
+	</div>
+  <% end %>
+</div>
+

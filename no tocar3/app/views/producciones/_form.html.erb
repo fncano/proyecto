@@ -1,0 +1,40 @@
+<%= simple_form_for @produccion do |f| %>
+
+  <% if produccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produccion.errors.count, "error") %> prohibited this produccion from being saved:</h2>
+
+      <ul>
+      <% produccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.input :fecha %>
+  
+    <%= f.input :num_fact %>
+  
+    <%= f.input :cliente %>
+  
+    <%= f.input :fecha_entre %>
+  
+    <%= f.input :empleado %>
+  
+    <%= f.input :cant %>
+  
+    <%= f.input :prenda %>
+  
+    <%= f.input :pieza %>
+  
+    <%= f.input :talla %>
+  
+
+    
+
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>

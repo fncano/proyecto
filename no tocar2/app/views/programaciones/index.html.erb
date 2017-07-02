@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-block">
+   <h4 class="card-title">Programacion</h4>
+   <%= form_tag programaciones_path, class: "form-inline", role: "form",  method: 'get' do %>
+   	<label>Nombre: </label>
+   	<div class="form-group">
+      	<%= search_field_tag :search, params[:search], :class => "form-control",
+          	placeholder: "Ingrese Nombre", size: "50" %>
+   	</div>
+   	<button class="btn btn-success">Buscar
+   	</button>
+   <% end %>
+  </div>
+</div>
+
+<h1>Programaciones</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Num progr</th>
+      <th>Cliente</th>
+      <th>Fecha entrega</th>
+      <th>Empleado</th>
+      <th>Cant</th>
+      <th>Prenda</th>
+      <th>Pieza</th>
+      <th>Talla</th>
+      <th>Val uni</th>
+      <th>Total</th>
+      <th>Subtotal</th>
+      <th>Iva</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @programaciones.each do |programacion| %>
+      <tr>
+        <td><%= programacion.fecha %></td>
+        <td><%= programacion.num_progr %></td>
+        <td><%= programacion.cliente %></td>
+        <td><%= programacion.fecha_entrega %></td>
+        <td><%= programacion.empleado %></td>
+        <td><%= programacion.cant %></td>
+        <td><%= programacion.prenda %></td>
+        <td><%= programacion.pieza %></td>
+        <td><%= programacion.talla %></td>
+        <td><%= programacion.val_uni %></td>
+        <td><%= programacion.total %></td>
+        <td><%= programacion.subtotal %></td>
+        <td><%= programacion.iva %></td>
+        <td><%= programacion.total %></td>
+        <td><%= link_to 'Ver', programacion, remote: true, class:"btn btn-info" %></td>
+        <% if can? :update, @programacion %>
+        <td><%= link_to 'Editar', edit_programacion_path(programacion), class:"btn btn-warning" %></td>
+        <% end %>
+        <% if can? :delete, @programacion %>
+        <td><%= link_to 'Borrar', programacion, method: :delete, data: { confirm: 'ESTA SEGURO?' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= will_paginate @programaciones, renderer: BootstrapPagination::Rails %>
+
+<br>
+Programaciones: <%= @programaciones.count %>
+<br>
+<% if can? :create, @programacion %>
+<%= link_to ' crear Programación', new_programacion_path, class:"btn btn-success" %>
+<% end %>

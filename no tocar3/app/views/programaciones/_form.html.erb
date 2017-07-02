@@ -1,0 +1,31 @@
+<%= simple_form_for @programacion do |f| %>
+
+ 
+
+  
+    <%= f.input :fecha %>
+   
+    <%= f.input :num_progr %>
+   
+    <%= f.input :cliente %>
+   
+   
+   
+    
+   
+    <%= f.input :cant %>
+   
+    <%= f.input :prenda %>
+   
+    <%= f.input :pieza %>
+   
+    <%= f.select(:talla, ['XS', 'S','M','L','XL','XXL']) %>
+   
+     
+   
+
+  <div class="actions">
+    <%= f.submit "Guardar", class:"btn btn-success" %>
+  </div>
+<% end %>
+

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-05-16
+  num_pedi: 1
+  cliente: MyString
+  fecha_entrega: 2017-05-16
+  empleado: MyString
+  cant: 1
+  prenda: MyString
+  pieza: MyString
+  talla: MyString
+  val_uni: 1
+  total: 1
+  subtotal: 1
+  iva: 1
+  total: 1
+
+two:
+  fecha: 2017-05-16
+  num_pedi: 1
+  cliente: MyString
+  fecha_entrega: 2017-05-16
+  empleado: MyString
+  cant: 1
+  prenda: MyString
+  pieza: MyString
+  talla: MyString
+  val_uni: 1
+  total: 1
+  subtotal: 1
+  iva: 1
+  total: 1

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-05-16
+  num_fact: 1
+  proveedor: MyString
+  documento: MyString
+  numero: 1
+  empleado: MyString
+  cant: 1
+  detalle: MyString
+  val_uni: 1
+  total: 1
+  subtotal: 1
+  iva: 1
+  total: 1
+
+two:
+  fecha: 2017-05-16
+  num_fact: 1
+  proveedor: MyString
+  documento: MyString
+  numero: 1
+  empleado: MyString
+  cant: 1
+  detalle: MyString
+  val_uni: 1
+  total: 1
+  subtotal: 1
+  iva: 1
+  total: 1
